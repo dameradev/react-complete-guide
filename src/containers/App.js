@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
+import withClass from "../hoc/withClass";
+import Aux from "../hoc/Aux";
 import classes from "./App.module.css";
 
 class App extends Component {
@@ -85,7 +88,7 @@ class App extends Component {
     }
 
     return (
-      <div className={classes.App}>
+      <Aux>
         <button
           onClick={() => {
             if (this.state.showCockpit) {
@@ -104,10 +107,10 @@ class App extends Component {
           />
         ) : null}
         {persons}
-      </div>
+      </Aux>
     );
   }
   // return React.createElement('div', {className: 'App'}, React.createElement('h1', null,'Hi, I\'m a React App!!!'));
 }
 
-export default App;
+export default withClass(App, classes.App);
