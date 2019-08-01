@@ -37,6 +37,8 @@ class App extends Component {
     console.log("[App.js] componentDidUpdate");
   }
 
+  //--------------------------------------
+
   deletePersonHandler = personIndex => {
     // const persons = this.state.persons.slice();
     const persons = [...this.state.persons];

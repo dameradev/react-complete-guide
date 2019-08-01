@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./cockpit.module.css";
 
-const cockpit = props => {
+const Cockpit = props => {
+  useEffect(() => {
+    console.log("[Cockpit.js] UseEffect");
+    // HTTP request..
+    const timer = setTimeout(() => {
+      alert("Saved data to cloud!");
+    }, 1000);
+    return () => {
+      clearTimeout(timer);
+      console.log("[Cockpit.js] cleanup work in useEffect");
+    };
+  }, []); // It will run only once (like componentDidMount) because of the empty array []
+  // }, [props.persons]); runs when this data changes
+
+  useEffect(() => {
+    console.log("[Cockpit.js] 2nd UseEffect");
+    return () => {
+      console.log("[Cockpit.js] cleanup work in 2nd useEffect");
+    };
+  });
+
   const assignedClasses = [];
   let btnClass = "";
 
@@ -27,4 +47,4 @@ const cockpit = props => {
     </div>
   );
 };
-export default cockpit;
+export default Cockpit;
