@@ -5,11 +5,10 @@ const Cockpit = props => {
   useEffect(() => {
     console.log("[Cockpit.js] UseEffect");
     // HTTP request..
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       alert("Saved data to cloud!");
     }, 1000);
     return () => {
-      clearTimeout(timer);
       console.log("[Cockpit.js] cleanup work in useEffect");
     };
   }, []); // It will run only once (like componentDidMount) because of the empty array []
